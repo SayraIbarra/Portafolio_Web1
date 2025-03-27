@@ -1,0 +1,26 @@
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+}
+li a{
+	display: block;
+	background-color: lightsalmon;
+	color: white;
+	padding: 8px 10px;
+	text-decoration: none;
+}
+li a:hover{
+	background-color:;
+	color: darkpink;
+}
+li a.activo{
+	background-color:darkgoldenrod;
+
+	color:white;
+}
+li a:hover:not(.activo){/*cuando se pas*/
+	background-color:lightpink;
+	color: darkblue;
+}
