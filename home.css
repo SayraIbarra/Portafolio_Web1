@@ -1,0 +1,112 @@
+body{
+	background-color: #DED2E9;
+}
+.navbar {
+    position: fixed;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 25px 0;
+    text-align: center;
+    z-index: 1000;
+    font-family: "Cinzel";
+}
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: background 0.3s;
+
+}
+
+.navbar ul li a:hover {
+    background-color: #6a6a6a;
+    border-radius: 5px;
+}
+a{
+	color: white;
+    text-decoration: none;
+}
+.texto1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+.inicio{
+    position: relative;
+    text-align: center;
+    color: black;
+}
+.inicio img{
+	width: 100%;
+	height: 750px;
+   filter: brightness(0.5); /* Ajusta el valor para cambiar el nivel de brillo (1 es el brillo original) */
+}
+.Thistory{
+    position: relative;
+    text-align: center;
+    color: #ed0a7f;
+}
+.Thistory img{
+    width: 100%;
+    height: 650px;
+}
+.texto{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;  
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+.Telab img{
+    width: 100%;
+    height: 750px;
+}
+.Tcomer img{
+    width: 100%;
+    height: 730px;
+}
+.Tcomer{
+    position: relative;
+    text-align: center;
+    color: #ed0a7f;
+}
+.Tnot img{
+    width: 100%;
+    height: 750px;
+}
+.Tnot{
+    position: relative;
+    text-align: center;
+    color: #ed0a7f;
+}
+.Tcont img{
+    width: 100%;
+    height: 700px;
+}
+.columnas {
+            column-count: 2; /* Número de columnas */
+            column-gap: 20px; /* Espaciado entre columnas */
+            text-align: justify; /* Justificar el texto */
+            color: black;
+        }
