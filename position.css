@@ -1,0 +1,78 @@
+.p2
+{
+	font-family:cursive;
+	font-size: 45px;
+	color: darkred;
+}
+.parrafo
+{
+	font-family: inherit;
+	font-size: 20px;
+	
+
+}
+.contenedor
+{
+	position: relative;
+	top:40px;
+	background:#b500ce;
+	height: 150px;
+	
+}
+.Capa1
+{
+	position: relative;
+	height: 50px;
+	left: 25px;
+	top: 25px;
+	background:#89d609;
+	font-family: cursive;
+	font-size: 15px;
+	
+}
+.Capa2
+{
+	position: absolute;
+	background:#09d6cd;
+	right: 50px;
+	z-index: 2;
+	height: 120px;
+	width: 150px;
+	font-family: cursive;
+	font-size: 15px;
+}
+.Capa3
+{
+	position: absolute;
+	background:#f9fb5a;
+	width: 150px;
+	height: 150px;
+	font-family: cursive;
+	font-size: 15px;
+	z-index: 1;
+
+}
+.Capa4
+{
+	position: absolute;
+	background:#f76c8b;
+	width: 250px;
+	height: 200px;
+	top: 120;
+	left: 50px;
+	font-family: cursive;
+	font-size: 15px;
+	z-index: 3;
+}
+.Capa5
+{
+	border: 2px solid purple;
+	width: 550px;
+	height: 50px;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	font-family: cursive;
+	font-size: 15px;
+	z-index: 4;
+}
