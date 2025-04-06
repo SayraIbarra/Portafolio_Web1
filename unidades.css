@@ -1,0 +1,66 @@
+:root {
+  font-size: 16px; /* Tamaño base para rem */
+}
+
+body {
+  font-family:cursive;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg,white,#C32FB2);
+  background: -moz-linear-gradient(45deg,white,#C32FB2);
+  background: -webkit-linear-gradient(45deg,white,#C32FB2);
+}
+
+.absoluta {
+  width: 300px;
+  height: 100px;
+  background-color:#D375F4;
+  margin: 10px auto;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 10px;
+}
+
+.relativa-em {
+  width: 20em;
+  height: 5em;
+  background-color: #4BD77D;
+  margin: 10px auto;
+  text-align: center;
+  line-height: 5em;
+  border-radius: 10px;
+}
+
+.relativa-rem {
+  width: 20rem;
+  height: 5rem;
+  background-color:#FA9840;
+  margin: 10px auto;
+  text-align: center;
+  line-height: 5rem;
+  border-radius: 10px;
+}
+
+.relativa-vw {
+  width: 50vw;
+  height: 10vw;
+  background-color:#3CF3EE;
+  margin: 10px auto;
+  text-align: center;
+  line-height: 10vw;
+  border-radius: 10px;
+}
+
+.relativa-vh {
+  width: 50vh;
+  height: 10vh;
+  background-color:#FB74C0;
+  margin: 10px auto;
+  text-align: center;
+  line-height: 10vh;
+  border-radius: 10px;
+}
