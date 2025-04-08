@@ -39,9 +39,9 @@ li a:hover:not(.activo)
 	background-color:lightcyan;
 	color: black;
 }
-h1{
+h1,h2{
 
-	font-family: "Playfair Display", serif;
+	font-family:cursive;
 }
 	
 @font-face
