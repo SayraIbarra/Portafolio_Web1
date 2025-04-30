@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="est1.css">
+	<title>Operaciones en JavaScript</title>
+	<script type="text/javascript">
+		function sumar() {
+			var n1 = document.getElementById('num1').value;
+			var n2 = document.getElementById('num2').value;
+			var r = parseFloat(n1) + parseFloat(n2);
+			document.getElementById("resultado").innerHTML = r;
+		}
+
+		function resta() {
+			var n1 = document.getElementById('num1').value;
+			var n2 = document.getElementById('num2').value;
+			var r = parseFloat(n1) - parseFloat(n2);
+			document.getElementById("resultado").innerHTML = r;
+		}
+
+		function multi() {
+			var n1 = document.getElementById('num1').value;
+			var n2 = document.getElementById('num2').value;
+			var r = parseFloat(n1) * parseFloat(n2);
+			document.getElementById("resultado").innerHTML = r;
+		}
+
+		function dividir() {
+			var n1 = document.getElementById('num1').value;
+			var n2 = document.getElementById('num2').value;
+			if (parseFloat(n2) !== 0) {
+				var r = parseFloat(n1) / parseFloat(n2);
+				document.getElementById("resultado").innerHTML = r;
+			} else {
+				document.getElementById("resultado").innerHTML = "No se puede dividir entre 0";
+			}
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<label for="num1">Número:</label>
+		<input type="text" name="num1" id="num1" placeholder="Número 1"><br>
+		<label for="num2">Número:</label>
+		<input type="text" name="num2" id="num2" placeholder="Número 2"><br><br>
+
+		<input type="button" value="Suma" onclick="sumar()">
+		<input type="button" value="Resta" onclick="resta()">
+		<input type="button" value="Multiplica" onclick="multi()">
+		<input type="button" value="Divide" onclick="dividir()"><br><br>
+
+		El resultado es:
+		<p id="resultado" name="resultado"></p>
+	</form>
+</body>
+</html>
