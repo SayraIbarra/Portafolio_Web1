@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="Lectura1.css">
+	<title>Lectura desde formulario</title>
+	<script src="LecturaForm1.js"></script>
+</head>
+<body>
+	<h1>Registro de usuario</h1>
+	<form name="formulario">
+		<label for="user">Nombre:</label>
+		<input type="text" name="user" id="user" placeholder="usuario"><br>
+
+		<label for="pass">Contraseña:</label>
+		<input type="password" name="pass" id="pass"><br>
+
+		<label for="carrera">Carrera:</label>
+		<select name="carrera" id="carrera">
+			<option value="ITI">Ingeniería en Tecnologías de la Información</option>
+			<option value="ITEM">Ingeniería en Telemática</option>
+		</select><br>
+
+		<input type="radio" name="genero" value="Femenino" id="f">
+		<label for="f">Femenino</label><br>
+		<input type="radio" name="genero" value="Masculino" id="m">
+		<label for="m">Masculino</label><br>
+
+		<!-- Agregamos un checkbox para que tenga sentido el estado -->
+		<input type="checkbox" id="check">
+		<label for="check">Acepto términos</label><br>
+
+		<input type="button" value="Leer datos" onclick="leer()">
+	</form>
+
+	<h2>Tus datos son:</h2>
+	<div id="resultado"></div>
+</body>
+</html>
