@@ -7,10 +7,17 @@
 	<link rel="icon" type="image/jpeg" href="logor.jpg">
 	<link rel="stylesheet" type="text/css" href="contacto.css">
 	<title>CONTACTO</title>
-	<script type="text/javascript" src="contacto.js"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="jspdf/js/jquery/jquery-1.7.1.min.js" ></script>
+	<script type="text/javascript" src="jspdf/jspdf/js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="jspdf/jspdf.js"></script>
+	<script type="text/javascript" src="jspdf/jspdf.plugin.addimage.js"></script>
+	<script type="text/javascript" src="jspdf/jspdf.plugin.standard_fonts_metrics.js"></script>
+	<script type="text/javascript" src="jspdf/jspdf.plugin.split_text_to_size.js"></script>
+	<script type="text/javascript" src="jspdf/jspdf.plugin.from_html.js"></script>
+	<script type="text/javascript" src="contacto.js"></script>
 </head>
 <body>
 	<div class="inicio">
@@ -65,6 +72,30 @@
 
 		<h2>Reseñas de otros visitantes:</h2>
 		<div id="todasResenas"></div>
+	</div>
+
+
+	<div class="container">
+	<h1>Reservas</h1>
+	<form name="formularioReserva" id="reservaForm">
+		<label for="nombre">Nombre:</label>
+		<input type="text" name="nombre" id="nombreReserva" placeholder="Tu nombre" required>
+
+		<label for="correo">Correo electrónico:</label>
+		<input type="email" name="correo" id="correoReserva" placeholder="tucorreo@ejmplo.com" required>
+
+		<label for="fecha">Fecha de tu visita</label>
+		<input type="date" name="fecha" id="fechaReserva" required>
+
+		<label for="calificacion">Número de personas:</label>
+		<input type="number" name="personas" id="personasReserva" required>
+
+		<input type="button" value="Generar PDF" onclick="generarPDF()">
+	</form>
+</div>
+
+	<div>
+		<iframe frameborder="0" width="500" height="400"></iframe>
 	</div>
 </body>
 </html>
