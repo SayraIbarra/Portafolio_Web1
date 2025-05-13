@@ -105,7 +105,83 @@
     <li><a href="#">YouTube: Casa del Rebozo Oficial</a></li>
   </ul>
 </section>
+</section>
+<section id="ayuda" class="bg-gray-100 py-10 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-center text-indigo-700 mb-8">Preguntas Frecuentes sobre los Rebozos</h2>
 
+    <div class="space-y-6">
+
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold text-gray-800">¿Qué es un rebozo?</h3>
+        <p class="mt-2 text-gray-600">El rebozo es una prenda tradicional mexicana tejida a mano, utilizada tanto como accesorio como símbolo cultural.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold text-gray-800">¿Cómo se fabrica un rebozo?</h3>
+        <p class="mt-2 text-gray-600">Los rebozos se tejen en telar de cintura o pedal, utilizando hilos de algodón, seda o artisela. El proceso puede tardar varios días.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold text-gray-800">¿Dónde puedo comprar un rebozo artesanal?</h3>
+        <p class="mt-2 text-gray-600">Puedes adquirirlos en ferias artesanales, tiendas locales o directamente con las artesanas en lugares como Tenancingo, Santa María del Río o Oaxaca.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+Chatbot 
+<div id="chatbot" class="fixed bottom-6 right-6 w-80 bg-white shadow-xl rounded-lg border border-gray-300 z-50">
+  <div class="bg-indigo-700 text-white text-center p-3 rounded-t-lg font-bold">
+    Ayuda - Chat Rebozos
+  </div>
+  <div id="chatbox" class="h-60 overflow-y-auto p-4 space-y-2 text-sm text-gray-800">
+    <div class="text-left bg-gray-200 p-2 rounded-md">Hola, ¿en qué te puedo ayudar sobre los rebozos?</div>
+  </div>
+  <form onsubmit="enviarMensaje(event)" class="flex border-t border-gray-200">
+    <input type="text" id="inputChat" class="flex-1 p-2 text-sm border-none focus:outline-none" placeholder="Escribe tu pregunta...">
+    <button type="submit" class="bg-indigo-600 text-white px-4">Enviar</button>
+  </form>
+</div>
+
+<script>
+  function enviarMensaje(e) {
+    e.preventDefault();
+    const input = document.getElementById("inputChat");
+    const chatbox = document.getElementById("chatbox");
+
+    if (input.value.trim() === "") return;
+
+    // Mostrar mensaje del usuario
+    const userMessage = document.createElement("div");
+    userMessage.className = "text-right bg-indigo-100 p-2 rounded-md";
+    userMessage.innerText = input.value;
+    chatbox.appendChild(userMessage);
+
+    // Simular respuesta del bot
+    const respuesta = responder(input.value.toLowerCase());
+    const botMessage = document.createElement("div");
+    botMessage.className = "text-left bg-gray-200 p-2 rounded-md";
+    botMessage.innerText = respuesta;
+    chatbox.appendChild(botMessage);
+
+    input.value = "";
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  function responder(pregunta) {
+    if (pregunta.includes("qué es un rebozo")) {
+      return "Un rebozo es una prenda tradicional mexicana tejida a mano.";
+    } else if (pregunta.includes("comprar")) {
+      return "Puedes comprar rebozos en ferias artesanales o con artesanas locales.";
+    } else if (pregunta.includes("material")) {
+      return "Los rebozos se hacen con algodón, seda o artisela.";
+    } else {
+      return "¡Gracias por tu pregunta! Pronto añadiremos más información.";
+    }
+  }
+</script>
 
 </body>
 </html>
