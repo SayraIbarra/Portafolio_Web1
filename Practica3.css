@@ -1,0 +1,40 @@
+ body {
+      font-family:cursive;
+      margin: 40px;
+      background-color: #87F0DF;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 15px;
+      background: #3492A9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .question h3 {
+      margin: 0 0 10px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      color: green;
+    }
+    #chart-container {
+      width: 500px;
+      margin: 30px auto;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #F16D38;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #F16D38;
+    }

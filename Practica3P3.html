@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="Practica3.css">
+  <title>Diagnóstico de HTML</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<h1>Formulario de Diagnóstico - Fundamentos de HTML</h1>
+
+<form id="quizForm">
+  <div class="question">
+    <h3>1. ¿Qué significa HTML?</h3>
+    <label><input type="radio" name="q1" value="1"> Hyper Text Markup Language</label><br>
+    <label><input type="radio" name="q1" value="0"> Home Tool Markup Language</label><br>
+    <label><input type="radio" name="q1" value="0"> Hyperlinks and Text Markup Language</label>
+  </div>
+
+  <div class="question">
+    <h3>2. ¿Cuál es el elemento raíz de una página HTML?</h3>
+    <label><input type="radio" name="q2" value="1"> &lt;html&gt;</label><br>
+    <label><input type="radio" name="q2" value="0"> &lt;body&gt;</label><br>
+    <label><input type="radio" name="q2" value="0"> &lt;head&gt;</label>
+  </div>
+
+  <div class="question">
+    <h3>3. ¿Qué etiqueta se usa para insertar una imagen?</h3>
+    <label><input type="radio" name="q3" value="1"> &lt;img&gt;</label><br>
+    <label><input type="radio" name="q3" value="0"> &lt;image&gt;</label><br>
+    <label><input type="radio" name="q3" value="0"> &lt;src&gt;</label>
+  </div>
+
+  <div class="question">
+    <h3>4. ¿Qué atributo especifica el texto alternativo para una imagen?</h3>
+    <label><input type="radio" name="q4" value="1"> alt</label><br>
+    <label><input type="radio" name="q4" value="0"> title</label><br>
+    <label><input type="radio" name="q4" value="0"> description</label>
+  </div>
+
+  <div class="question">
+    <h3>5. ¿Cuál de estas etiquetas se usa para enlaces?</h3>
+    <label><input type="radio" name="q5" value="1"> &lt;a&gt;</label><br>
+    <label><input type="radio" name="q5" value="0"> &lt;link&gt;</label><br>
+    <label><input type="radio" name="q5" value="0"> &lt;href&gt;</label>
+  </div>
+
+  <button type="button" onclick="evaluar()">Evaluar</button>
+  <button type="button" onclick="generarPDF()">Descargar PDF</button>
+</form>
+
+<div id="resultado"></div>
+
+<div id="chart-container">
+  <canvas id="grafico"></canvas>
+</div>
+
+<script>
+  let resultadosPorPregunta = [];
+
+  function evaluar() {
+    const form = document.getElementById("quizForm");
+    const respuestas = ["q1", "q2", "q3", "q4", "q5"];
+    let total = 0;
+    resultadosPorPregunta = [];
+
+    respuestas.forEach((q, i) => {
+      const seleccionada = form[q].value;
+      const puntos = parseInt(seleccionada || "0");
+      resultadosPorPregunta.push(puntos);
+      total += puntos;
+    });
+
+    document.getElementById("resultado").textContent =
+      `Obtuviste ${total} de 5 puntos.`;
+
+    generarGrafico();
+  }
+
+  function generarGrafico() {
+    const ctx = document.getElementById('grafico').getContext('2d');
+    if (window.miGrafico) {
+      window.miGrafico.destroy(); // Borra el anterior
+    }
+    window.miGrafico = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3', 'Pregunta 4', 'Pregunta 5'],
+        datasets: [{
+          label: 'Puntos',
+          data: resultadosPorPregunta,
+          backgroundColor: '#007BFF'
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            min: 0,
+            max: 1,
+            ticks: {
+              stepSize: 1
+            }
+          }
+        }
+      }
+    });
+  }
+
+  async function generarPDF() {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
+
+    let total = resultadosPorPregunta.reduce((a, b) => a + b, 0);
+
+    pdf.setFontSize(18);
+    pdf.text("Resultados del Diagnóstico", 20, 20);
+
+    pdf.setFontSize(12);
+    resultadosPorPregunta.forEach((punto, i) => {
+      pdf.text(`Pregunta ${i + 1}: ${punto} punto(s)`, 20, 30 + i * 10);
+    });
+
+    pdf.setFontSize(14);
+    pdf.text(`Total: ${total} de 5 puntos`, 20, 90);
+
+    pdf.save("diagnostico.pdf");
+  }
+</script>
+
+</body>
+</html>
