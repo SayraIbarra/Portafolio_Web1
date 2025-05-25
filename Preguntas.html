@@ -82,58 +82,7 @@
     </div>
   </div>
 </section>
-
-Chatbot 
-<div id="chatbot" class="fixed bottom-6 right-6 w-80 bg-white shadow-xl rounded-lg border border-gray-300 z-50">
-  <div class="bg-indigo-700 text-white text-center p-3 rounded-t-lg font-bold">
-    Ayuda - Chat Rebozos
-  </div>
-  <div id="chatbox" class="h-60 overflow-y-auto p-4 space-y-2 text-sm text-gray-800">
-    <div class="text-left bg-gray-200 p-2 rounded-md">Hola, ¿en qué te puedo ayudar sobre los rebozos?</div>
-  </div>
-  <form onsubmit="enviarMensaje(event)" class="flex border-t border-gray-200">
-    <input type="text" id="inputChat" class="flex-1 p-2 text-sm border-none focus:outline-none" placeholder="Escribe tu pregunta...">
-    <button type="submit" class="bg-indigo-600 text-white px-4">Enviar</button>
-  </form>
-</div>
-
-<script>
-  function enviarMensaje(e) {
-    e.preventDefault();
-    const input = document.getElementById("inputChat");
-    const chatbox = document.getElementById("chatbox");
-
-    if (input.value.trim() === "") return;
-
-    // Mostrar mensaje del usuario
-    const userMessage = document.createElement("div");
-    userMessage.className = "text-right bg-indigo-100 p-2 rounded-md";
-    userMessage.innerText = input.value;
-    chatbox.appendChild(userMessage);
-
-    // Simular respuesta del bot
-    const respuesta = responder(input.value.toLowerCase());
-    const botMessage = document.createElement("div");
-    botMessage.className = "text-left bg-gray-200 p-2 rounded-md";
-    botMessage.innerText = respuesta;
-    chatbox.appendChild(botMessage);
-
-    input.value = "";
-    chatbox.scrollTop = chatbox.scrollHeight;
-  }
-
-  function responder(pregunta) {
-    if (pregunta.includes("qué es un rebozo")) {
-      return "Un rebozo es una prenda tradicional mexicana tejida a mano.";
-    } else if (pregunta.includes("comprar")) {
-      return "Puedes comprar rebozos en ferias artesanales o con artesanas locales.";
-    } else if (pregunta.includes("material")) {
-      return "Los rebozos se hacen con algodón, seda o artisela.";
-    } else {
-      return "¡Gracias por tu pregunta! Pronto añadiremos más información.";
-    }
-  }
-</script>
-
+<script> window.chtlConfig = { chatbotId: "7461173926" } </script>
+<script async data-id="7461173926" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
 </body>
 </html>
