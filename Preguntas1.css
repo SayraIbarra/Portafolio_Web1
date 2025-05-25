@@ -1,60 +1,197 @@
+:root {
+  --primary-color:#0960e0;
+  --primary-light: #c8f4fd;
+  --primary-dark: #0494c2;
+  --background:white;
+  --text-color: #333;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
 body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fffaf7;
-      color: #333;
-    }
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text-color);
+  line-height: 1.6;
+}
 
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
-    h2 {
-      font-size: 2rem;
-      color: #8b3a3a;
-      margin-bottom: 20px;
-      border-left: 6px solid #8b3a3a;
-      padding-left: 10px;
-    }
+h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  padding-left: 15px;
+  position: relative;
+  font-weight: 600;
+}
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(to bottom, var(--primary-color), #c27d7d);
+  border-radius: 3px;
+}
 
-    li {
-      margin-bottom: 20px;
-      background-color: #fff0e6;
-      padding: 15px 20px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-    }
+ul {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 20px;
+}
 
-    li strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 5px;
-      color: #602020;
-    }
+li {
+  margin-bottom: 0;
+  background-color: var(--primary-light);
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border-left: 4px solid transparent;
+}
 
-    a {
-      color: #8b3a3a;
-      text-decoration: none;
-    }
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-left-color: var(--primary-color);
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+li strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
 
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 1.5rem;
-      }
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
 
-      li {
-        font-size: 0.95rem;
-      }
-    }
+a:hover {
+  color: var(--primary-dark);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 15px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  li {
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 40px 10px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  li {
+    font-size: 0.95rem;
+    padding: 15px;
+  }
+  
+  li strong {
+    font-size: 1.1rem;
+  }
+}
+
+/* Estilos para el menú horizontal */
+.navbar {
+  background-color: var(--primary-light);
+  padding: 15px 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1000px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.navbar li {
+  margin-bottom: 0;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border-left: none;
+}
+
+.navbar a {
+  color: var(--primary-dark);
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: var(--transition);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar a:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: none;
+  box-shadow: none;
+}
+
+.navbar a:hover::after {
+  width: 0;
+}
+
+/* Cambio de tipografía general */
+body {
+  font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Estilo para la sección activa */
+.navbar a[href*="Preguntas.html"] {
+  background-color: var(--primary-color);
+  color: white;
+}
