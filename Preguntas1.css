@@ -1,8 +1,8 @@
 :root {
   --primary-color:#0960e0;
-  --primary-light: #c8f4fd;
+  --primary-light: #5D4037;
   --primary-dark: #0494c2;
-  --background:white;
+  --background:#FFF9F0;
   --text-color: #333;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
